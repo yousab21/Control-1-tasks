@@ -56,8 +56,8 @@ class light{
 
 
 //setting up intervalts
-unsigned long ledShortInterval = 500;
-unsigned long ledLongInterval = 5000;
+unsigned long ledShortInterval = 2000;
+unsigned long ledLongInterval = 7000;
 unsigned long cycleStart = 0;
 unsigned long now = 0;
 
