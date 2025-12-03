@@ -86,14 +86,19 @@ void loop()
     cycleStart = now;
   }
 
-  //yellow cyclw
-  else if (yellow.isON && (now - cycleStart >= ledShortInterval)){
-    yellow.turnOFF();
+  //yellow cycle
+  else if (yellow.isON && (now - cycleStart >= ledShortInterval) && !red.isON){
     red.turnON();
     cycleStart = now;
   }
 
-  else if (red.isON){
+  //yellow + red cycle
+  else if (yellow.isON && (now - cycleStart >= ledShortInterval) && red.isON){
+    yellow.turnOFF();
+    cycleStart = now;
+  }
+
+  else if (red.isON && !yellow.isON){
     //do the long delay if button is pressed
     if(button.wasPressed()){
       if (now - cycleStart >= ledLongInterval){
